@@ -1,0 +1,8 @@
+.vs
+Backup
+*.suo
+*.exe
+*.pdb
+*.dll
+obj
+bin

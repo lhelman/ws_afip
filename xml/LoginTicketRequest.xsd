@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by pancho (pancho) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">
+Esquema de Ticket de pedido de acceso a un WSN
+por parte de un CEE.
+Nro revision SVN: $Rev: 695 $
+</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="loginTicketRequest" type="loginTicketRequest"/>
+	<xsd:complexType name="loginTicketRequest">
+		<xsd:sequence>
+			<xsd:element name="header" type="headerType"/>
+			<xsd:element name="service" type="serviceType"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:decimal" use="optional" default="1.0"/>
+	</xsd:complexType>
+	<xsd:complexType name="headerType">
+		<xsd:sequence>
+			<xsd:element name="source" type="xsd:string"/>
+			<xsd:element name="destination" type="xsd:string"/>
+			<xsd:element name="uniqueId" type="xsd:unsignedInt"/>
+			<xsd:element name="generationTime" type="xsd:dateTime"/>
+			<xsd:element name="expirationTime" type="xsd:dateTime"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="serviceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="32"/>
+			<xsd:pattern value="[a-z][a-z,\-,_,0-9]*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

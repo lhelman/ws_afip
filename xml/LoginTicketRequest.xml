@@ -1,0 +1,10 @@
+<loginTicketRequest>
+	<header>
+		<source></source>
+		<destination>cn=wsaahomo,o=afip,c=ar,serialNumber=CUIT 33693450239</destination>
+		<uniqueId></uniqueId>
+		<generationTime></generationTime>
+		<expirationTime></expirationTime>
+	</header>
+	<service></service>
+</loginTicketRequest>
