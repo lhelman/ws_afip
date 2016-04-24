@@ -493,12 +493,23 @@ class ProgramaPrincipal
             Console.WriteLine("***EXCEPCION AL OBTENER TICKET:");
             Console.WriteLine(excepcionAlObtenerTicket.Message);
             return -10;
-
         }
 
         WsfeSolicitud wsfeSolicitud = new WsfeSolicitud(objTicketRespuesta.Token, objTicketRespuesta.Sign);
         wsfeSolicitud.verbose = blnVerboseMode;
-        wsfeSolicitud.send(longCuit, strFactura);
+        try
+        {
+            wsfeSolicitud.send(longCuit, strFactura);
+        }
+        catch (Exception excepcionAlMandarFE)
+        {
+
+            Console.WriteLine("***EXCEPCION AL MANDAR EL PEDIDO DE FE:");
+            Console.WriteLine(excepcionAlMandarFE.Message);
+            Console.WriteLine(excepcionAlMandarFE.Source);
+            return -11;
+
+        }
 
         return 0;
     }
