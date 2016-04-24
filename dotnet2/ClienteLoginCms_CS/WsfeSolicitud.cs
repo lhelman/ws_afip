@@ -7,25 +7,22 @@ namespace ClienteLoginCms_CS
 {
     class WsfeSolicitud
     {
-        private String _wsaaToken;
-        private String _wsaaSign;
+        private string _wsaaToken;
+        private string _wsaaSign;
+        private string _url;
 
         private bool _verboseMode;
         public bool verbose { set { _verboseMode = value; } }
 
-        public WsfeSolicitud(String wsaaToken, String wsaaSign)
+        public WsfeSolicitud(string url, string wsaaToken, string wsaaSign)
         {
             this._wsaaToken = wsaaToken;
             this._wsaaSign = wsaaSign;
+            this._url = url;
         }
 
-        public String send(long cuit, String xmlInputFile)
+        public string send(long cuit, Factura f)
         {
-
-            InputReader reader = new InputReader();
-
-            Factura f = reader.leeFacturaEnXml(xmlInputFile);
-
             // Send FEAuthRequest
             //("asdf", objTicketRespuesta.Token, objTicketRespuesta.Sign);
             Wsfe.FEAuthRequest feAuthRequest = new Wsfe.FEAuthRequest();
@@ -34,6 +31,7 @@ namespace ClienteLoginCms_CS
             feAuthRequest.Sign = _wsaaSign;
 
             Wsfe.Service wsfeService = new Wsfe.Service();
+            wsfeService.Url = _url;
 
             //            feResponse = wsfeService.FECAEAConsultar(feAuthRequest, Periodo, orden);
             Wsfe.FECAERequest fecaeReq = new Wsfe.FECAERequest();
@@ -73,6 +71,7 @@ namespace ClienteLoginCms_CS
             
             fecaeReq.FeCabReq = fecabRequest;
             fecaeReq.FeDetReq = fecaeDetRequests.ToArray();
+
 
             Wsfe.FECAEResponse feResponse;
             feResponse = wsfeService.FECAESolicitar(feAuthRequest, fecaeReq);

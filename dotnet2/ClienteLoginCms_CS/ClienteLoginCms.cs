@@ -314,6 +314,7 @@ class ProgramaPrincipal
 
     // Valores por defecto, globales en esta clase 
     const string DEFAULT_URLWSAAWSDL = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?WSDL";
+    const string DEFAULT_URLWSFEWSDL = "https://wswhomo.afip.gov.ar/wsfev1/service.asmx?WSDL";
     const string DEFAULT_SERVICIO = "wsfe";
     const string DEFAULT_CERTSIGNER = "f:\\wsaa_test\\MiCertificadoConClavePrivada.pfx";
     const long DEFAULT_CUIT = -1;
@@ -332,6 +333,7 @@ class ProgramaPrincipal
         MostrarVersion();
 
         string strUrlWsaaWsdl = DEFAULT_URLWSAAWSDL;
+        string strUrlWsfeWsdl = DEFAULT_URLWSFEWSDL;
         string strIdServicioNegocio = DEFAULT_SERVICIO;
         string strRutaCertSigner = DEFAULT_CERTSIGNER;
         long   longCuit = DEFAULT_CUIT;
@@ -359,6 +361,20 @@ class ProgramaPrincipal
                 else
                 {
                     strUrlWsaaWsdl = args[i + 1];
+                    i = i + 1;
+                }
+            }
+
+            if (String.Compare(argumento, "-x", true) == 0)
+            {
+                if (args.Length < (i + 2))
+                {
+                    Console.WriteLine("Error: no se especificó la URL del WSDL del WSAA");
+                    return -1;
+                }
+                else
+                {
+                    strUrlWsfeWsdl = args[i + 1];
                     i = i + 1;
                 }
             }
@@ -461,7 +477,10 @@ class ProgramaPrincipal
             {
                 Console.WriteLine("***Servicio a acceder: {0}", strIdServicioNegocio);
                 Console.WriteLine("***URL del WSAA: {0}", strUrlWsaaWsdl);
+                Console.WriteLine("***URL del WSFE: {0}", strUrlWsfeWsdl);
                 Console.WriteLine("***Ruta del certificado: {0}", strRutaCertSigner);
+                Console.WriteLine("***Archivo de factura: {0}", strFactura);
+                Console.WriteLine("***Nro de CUIT en certificado: {0}", longCuit);
                 Console.WriteLine("***Modo verbose: {0}", blnVerboseMode);
 
             }
@@ -495,11 +514,14 @@ class ProgramaPrincipal
             return -10;
         }
 
-        WsfeSolicitud wsfeSolicitud = new WsfeSolicitud(objTicketRespuesta.Token, objTicketRespuesta.Sign);
+        WsfeSolicitud wsfeSolicitud = new WsfeSolicitud(strUrlWsfeWsdl, objTicketRespuesta.Token, objTicketRespuesta.Sign);
         wsfeSolicitud.verbose = blnVerboseMode;
         try
         {
-            wsfeSolicitud.send(longCuit, strFactura);
+            InputReader reader = new InputReader();
+            Factura f = reader.leeFacturaEnXml(strFactura);
+
+            wsfeSolicitud.send(longCuit, f);
         }
         catch (Exception excepcionAlMandarFE)
         {
@@ -535,6 +557,8 @@ class ProgramaPrincipal
         Console.WriteLine(" Valor por defecto: " + DEFAULT_CUIT);
         Console.WriteLine(" -w url URL del WSDL del WSAA");
         Console.WriteLine(" Valor por defecto: " + DEFAULT_URLWSAAWSDL);
+        Console.WriteLine(" -x url URL del WSDL del WSFE");
+        Console.WriteLine(" Valor por defecto: " + DEFAULT_URLWSFEWSDL);
         Console.WriteLine(" -f archivo_de_factura.xml" + DEFAULT_ARCHIVOFACTURA);
         Console.WriteLine(" Valor por defecto: " + DEFAULT_ARCHIVOFACTURA);
         Console.WriteLine(" -v on|off Reportes detallados de la ejecución");
