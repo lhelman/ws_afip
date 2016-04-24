@@ -1424,10 +1424,10 @@
   <wsdl:service name="Service">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web Service orientado  al  servicio  de Facturacion electronica RG2485 V1</wsdl:documentation>
     <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
-      <soap:address location="https://servicios1.afip.gov.ar/wsfev1/service.asmx" />
+      <soap:address location="https://wswhomo.afip.gov.ar/wsfev1/service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
-      <soap12:address location="https://servicios1.afip.gov.ar/wsfev1/service.asmx" />
+      <soap12:address location="https://wswhomo.afip.gov.ar/wsfev1/service.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

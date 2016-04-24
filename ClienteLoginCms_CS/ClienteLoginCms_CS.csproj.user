@@ -3,4 +3,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>-c C:\Users\IEUser\Downloads\certs\cert.p12 -v on -t 27044975098 -f \Users\IEUser\factura.xml</StartArguments>
+  </PropertyGroup>
 </Project>

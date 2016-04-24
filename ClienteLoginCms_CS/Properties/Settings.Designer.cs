@@ -36,7 +36,7 @@ namespace ClienteLoginCms_CS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://servicios1.afip.gov.ar/wsfev1/service.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://wswhomo.afip.gov.ar/wsfev1/service.asmx")]
         public string ClienteLoginCms_CS_Wsfe_Service {
             get {
                 return ((string)(this["ClienteLoginCms_CS_Wsfe_Service"]));

@@ -124,7 +124,7 @@ namespace ClienteLoginCms_CS
 
             if (_verboseMode)
             {
-                Console.WriteLine("Factura {0}", f);
+                Console.WriteLine("Factura Input {0}", f);
             }
             
             return f;
@@ -185,7 +185,28 @@ namespace ClienteLoginCms_CS
 
             Wsfe.FECAEResponse feResponse;
             feResponse = wsfeService.FECAESolicitar(feAuthRequest, fecaeReq);
+            bool errorsFound = false;
+            foreach( Wsfe.Err error in feResponse.Errors )
+            {
+                Console.WriteLine("DEBUGLEOH en bucle de error");
+                Console.WriteLine("Response error: {0} [{1}]", error.Msg, error.Code);
+                errorsFound = true;
+            }
 
+            if (errorsFound)
+            {
+                throw new Exception("Error al llamar al ws de factura electronica");
+            }
+            
+
+            Console.WriteLine("DEBUGLEOH despues del catch");
+            Console.WriteLine("Response cabResultado: {0}", feResponse.FeCabResp.Resultado);
+            Console.WriteLine("DEBUGLEOH despues del cabResultado");
+            foreach ( Wsfe.FECAEDetResponse detResponse in feResponse.FeDetResp )
+            {
+                Console.WriteLine("Response detResultado Concepto={0} CAE={1} [Resultado={3}]", detResponse.Concepto, detResponse.CAE, detResponse.Resultado);            
+            }
+            Console.WriteLine("DEBUGLEOH antes del fin");
             return "";
         }
     }
