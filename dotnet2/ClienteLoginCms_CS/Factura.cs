@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClienteLoginCms_CS
 {
-    class Factura
+    public class Factura
     {
 
         // FECabRequest

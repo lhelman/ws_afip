@@ -77,7 +77,7 @@ namespace ClienteLoginCms_CS.Wsfe {
         
         /// <remarks/>
         public Service() {
-            this.Url = global::ClienteLoginCms_CS.Properties.Settings.Default.ClienteLoginCms_CS_wsfe_Service;
+            this.Url = global::ClienteLoginCms_CS.Properties.Settings.Default.ClienteLoginCms_CS_Wsfe_Service;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
