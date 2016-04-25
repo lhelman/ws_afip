@@ -319,6 +319,7 @@ class ProgramaPrincipal
     const string DEFAULT_CERTSIGNER = "f:\\wsaa_test\\MiCertificadoConClavePrivada.pfx";
     const long DEFAULT_CUIT = -1;
     const string DEFAULT_ARCHIVOFACTURA = "factura.xml";
+    const string DEFAULT_ARCHIVOSALIDA = "salida.xml";
     const bool DEFAULT_VERBOSE = true;
 
     /// <summary> 
@@ -338,6 +339,7 @@ class ProgramaPrincipal
         string strRutaCertSigner = DEFAULT_CERTSIGNER;
         long   longCuit = DEFAULT_CUIT;
         string strFactura = DEFAULT_ARCHIVOFACTURA;
+        string strSalida = DEFAULT_ARCHIVOSALIDA;
         bool blnVerboseMode = DEFAULT_VERBOSE;
 
         // Analizo argumentos de linea de comandos 
@@ -425,12 +427,26 @@ class ProgramaPrincipal
             {
                 if (args.Length < (i + 2))
                 {
-                    Console.WriteLine("Error: no se especificó el ARCHIVO");
+                    Console.WriteLine("Error: no se especificó el archivo de entrada");
                     return -1;
                 }
                 else
                 {
                     strFactura = args[i + 1];
+                    i = i + 1;
+                }
+            }
+
+            else if (String.Compare(argumento, "-o", true) == 0)
+            {
+                if (args.Length < (i + 2))
+                {
+                    Console.WriteLine("Error: no se especificó el archivo de salida");
+                    return -1;
+                }
+                else
+                {
+                    strSalida = args[i + 1];
                     i = i + 1;
                 }
             }
@@ -480,6 +496,7 @@ class ProgramaPrincipal
                 Console.WriteLine("***URL del WSFE: {0}", strUrlWsfeWsdl);
                 Console.WriteLine("***Ruta del certificado: {0}", strRutaCertSigner);
                 Console.WriteLine("***Archivo de factura: {0}", strFactura);
+                Console.WriteLine("***Archivo de salida: {0}", strSalida);
                 Console.WriteLine("***Nro de CUIT en certificado: {0}", longCuit);
                 Console.WriteLine("***Modo verbose: {0}", blnVerboseMode);
 
@@ -521,7 +538,7 @@ class ProgramaPrincipal
             InputReader reader = new InputReader();
             Factura f = reader.leeFacturaEnXml(strFactura);
 
-            wsfeSolicitud.send(longCuit, f);
+            wsfeSolicitud.send(longCuit, f, strSalida);
         }
         catch (Exception excepcionAlMandarFE)
         {
@@ -529,6 +546,12 @@ class ProgramaPrincipal
             Console.WriteLine("***EXCEPCION AL MANDAR EL PEDIDO DE FE:");
             Console.WriteLine(excepcionAlMandarFE.Message);
             Console.WriteLine(excepcionAlMandarFE.Source);
+
+            OutputWriter output = new OutputWriter();
+            output.verbose = blnVerboseMode;
+
+            output.escribirRespuestaFacturaXml(strSalida, excepcionAlMandarFE);
+
             return -11;
 
         }
@@ -559,8 +582,10 @@ class ProgramaPrincipal
         Console.WriteLine(" Valor por defecto: " + DEFAULT_URLWSAAWSDL);
         Console.WriteLine(" -x url URL del WSDL del WSFE");
         Console.WriteLine(" Valor por defecto: " + DEFAULT_URLWSFEWSDL);
-        Console.WriteLine(" -f archivo_de_factura.xml" + DEFAULT_ARCHIVOFACTURA);
+        Console.WriteLine(" -f archivo_de_factura.xml");
         Console.WriteLine(" Valor por defecto: " + DEFAULT_ARCHIVOFACTURA);
+        Console.WriteLine(" -o archivo_de_salida.xml");
+        Console.WriteLine(" Valor por defecto: " + DEFAULT_ARCHIVOSALIDA);
         Console.WriteLine(" -v on|off Reportes detallados de la ejecución");
         Console.WriteLine(" -? Esta ayuda");
     }

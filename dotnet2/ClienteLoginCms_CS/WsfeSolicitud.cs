@@ -21,7 +21,7 @@ namespace ClienteLoginCms_CS
             this._url = url;
         }
 
-        public string send(long cuit, Factura f)
+        public bool send(long cuit, Factura f, string archivoSalida)
         {
             // Send FEAuthRequest
             //("asdf", objTicketRespuesta.Token, objTicketRespuesta.Sign);
@@ -40,7 +40,7 @@ namespace ClienteLoginCms_CS
             fecabRequest.CantReg = f.CantReg;
             fecabRequest.CbteTipo = f.CbteTipo;
             fecabRequest.PtoVta = f.PtoVta;
-            
+
             Wsfe.FEDetRequest fedetReq = new Wsfe.FEDetRequest();
             Wsfe.FECAEDetRequest fecaeDetRequest = new Wsfe.FECAEDetRequest();
             List<Wsfe.FECAEDetRequest> fecaeDetRequests = new List<Wsfe.FECAEDetRequest>();
@@ -54,7 +54,7 @@ namespace ClienteLoginCms_CS
             fecaeDetRequest.ImpTotal = f.ImpTotal;
             fecaeDetRequest.ImpNeto = f.ImpNeto;
             fecaeDetRequest.ImpIVA = f.ImpIVA;
-            
+
             fecaeDetRequest.MonId = f.MonId;
             fecaeDetRequest.MonCotiz = f.MonCotiz;
 
@@ -68,36 +68,20 @@ namespace ClienteLoginCms_CS
             fecaeDetRequest.Tributos = tributos.ToArray();
 
             fecaeDetRequests.Add(fecaeDetRequest);
-            
+
             fecaeReq.FeCabReq = fecabRequest;
             fecaeReq.FeDetReq = fecaeDetRequests.ToArray();
 
 
             Wsfe.FECAEResponse feResponse;
             feResponse = wsfeService.FECAESolicitar(feAuthRequest, fecaeReq);
-            bool errorsFound = false;
-            foreach( Wsfe.Err error in feResponse.Errors )
-            {
-                Console.WriteLine("DEBUGLEOH en bucle de error");
-                Console.WriteLine("Response error: {0} [{1}]", error.Msg, error.Code);
-                errorsFound = true;
-            }
 
-            if (errorsFound)
-            {
-                throw new Exception("Error al llamar al ws de factura electronica");
-            }
-            
+            OutputWriter output = new OutputWriter();
+            output.verbose = _verboseMode;
 
-            Console.WriteLine("DEBUGLEOH despues del catch");
-            Console.WriteLine("Response cabResultado: {0}", feResponse.FeCabResp.Resultado);
-            Console.WriteLine("DEBUGLEOH despues del cabResultado");
-            foreach ( Wsfe.FECAEDetResponse detResponse in feResponse.FeDetResp )
-            {
-                Console.WriteLine("Response detResultado Concepto={0} CAE={1} [Resultado={3}]", detResponse.Concepto, detResponse.CAE, detResponse.Resultado);            
-            }
-            Console.WriteLine("DEBUGLEOH antes del fin");
-            return "";
+            output.escribirRespuestaFacturaXml(archivoSalida, feResponse);
+
+            return true;
         }
     }
 }
