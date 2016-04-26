@@ -12,11 +12,47 @@ namespace ClienteLoginCms_CS.Tests
     [TestClass()]
     public class InputReaderTests
     {
+        /*
         [TestMethod()]
         public void leerFacturaCorrectaTest()
         {
             InputReader r = new InputReader();
             r.verbose = true;
+
+<?xml version="1.0" encoding="utf-8"?>
+<FECAERequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FeCabReq xmlns="http://ar.gov.afip.dif.FEV1/">
+    <CantReg>1</CantReg>
+    <PtoVta>4</PtoVta>
+    <CbteTipo>1</CbteTipo>
+  </FeCabReq>
+  <FeDetReq xmlns="http://ar.gov.afip.dif.FEV1/">
+    <FECAEDetRequest>
+      <Concepto>1</Concepto>
+      <DocTipo>80</DocTipo>
+      <DocNro>12345678901</DocNro>
+      <CbteDesde>1</CbteDesde>
+      <CbteHasta>1</CbteHasta>
+      <ImpTotal>9364.49</ImpTotal>
+      <ImpTotConc>0</ImpTotConc>
+      <ImpNeto>7739.25</ImpNeto>
+      <ImpOpEx>0</ImpOpEx>
+      <ImpTrib>0</ImpTrib>
+      <ImpIVA>1625.24</ImpIVA>
+      <MonId>PES</MonId>
+      <MonCotiz>1</MonCotiz>
+      <Tributos>
+        <Tributo>
+          <Id>5</Id>
+          <BaseImp>7739.25</BaseImp>
+          <Alic>0</Alic>
+          <Importe>1625.24</Importe>
+        </Tributo>
+      </Tributos>
+    </FECAEDetRequest>
+  </FeDetReq>
+</FECAERequest>
+
             string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                         "<factura>\n" +
                         "<CantReg>1</CantReg>\n" +
@@ -52,6 +88,6 @@ namespace ClienteLoginCms_CS.Tests
             Factura f = r.leeFacturaEnXml(new StringReader(xml));
             //Assert.Fail();
         }
-
+        */
     }
 }

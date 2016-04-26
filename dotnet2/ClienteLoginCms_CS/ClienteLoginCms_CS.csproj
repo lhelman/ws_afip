@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteLoginCms.cs" />
-    <Compile Include="Factura.cs" />
     <Compile Include="InputReader.cs" />
     <Compile Include="OutputWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

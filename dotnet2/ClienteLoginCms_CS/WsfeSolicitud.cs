@@ -21,10 +21,11 @@ namespace ClienteLoginCms_CS
             this._url = url;
         }
 
-        public bool send(long cuit, Factura f, string archivoSalida)
+        public bool send(long cuit, string archivoFactura, string archivoSalida)
         {
-            // Send FEAuthRequest
-            //("asdf", objTicketRespuesta.Token, objTicketRespuesta.Sign);
+            InputReader reader = new InputReader();
+            Wsfe.FECAERequest fecaeReq = reader.leeInputEnXml(archivoFactura);
+
             Wsfe.FEAuthRequest feAuthRequest = new Wsfe.FEAuthRequest();
             feAuthRequest.Cuit = cuit;
             feAuthRequest.Token = _wsaaToken;
@@ -33,54 +34,14 @@ namespace ClienteLoginCms_CS
             Wsfe.Service wsfeService = new Wsfe.Service();
             wsfeService.Url = _url;
 
-            //            feResponse = wsfeService.FECAEAConsultar(feAuthRequest, Periodo, orden);
-            Wsfe.FECAERequest fecaeReq = new Wsfe.FECAERequest();
-
-            Wsfe.FECAECabRequest fecabRequest = new Wsfe.FECAECabRequest();
-            fecabRequest.CantReg = f.CantReg;
-            fecabRequest.CbteTipo = f.CbteTipo;
-            fecabRequest.PtoVta = f.PtoVta;
-
-            Wsfe.FEDetRequest fedetReq = new Wsfe.FEDetRequest();
-            Wsfe.FECAEDetRequest fecaeDetRequest = new Wsfe.FECAEDetRequest();
-            List<Wsfe.FECAEDetRequest> fecaeDetRequests = new List<Wsfe.FECAEDetRequest>();
-
-            fecaeDetRequest.DocNro = f.DocNro;
-            fecaeDetRequest.DocTipo = f.DocTipo;
-            fecaeDetRequest.ImpTotal = f.ImpTotal;
-            fecaeDetRequest.CbteDesde = f.CbteDesde;
-            fecaeDetRequest.CbteHasta = f.CbteHasta;
-            fecaeDetRequest.Concepto = f.Concepto;
-            fecaeDetRequest.ImpTotal = f.ImpTotal;
-            fecaeDetRequest.ImpNeto = f.ImpNeto;
-            fecaeDetRequest.ImpIVA = f.ImpIVA;
-
-            fecaeDetRequest.MonId = f.MonId;
-            fecaeDetRequest.MonCotiz = f.MonCotiz;
-
-            Wsfe.Tributo tributo = new Wsfe.Tributo();
-            tributo.Id = f.tributoIva_id;
-            tributo.BaseImp = f.tributoIva_BaseImp;
-            tributo.Importe = f.tributoIva_Importe;
-
-            List<Wsfe.Tributo> tributos = new List<Wsfe.Tributo>();
-            tributos.Add(tributo);
-            fecaeDetRequest.Tributos = tributos.ToArray();
-
-            fecaeDetRequests.Add(fecaeDetRequest);
-
-            fecaeReq.FeCabReq = fecabRequest;
-            fecaeReq.FeDetReq = fecaeDetRequests.ToArray();
-
-
             Wsfe.FECAEResponse feResponse;
             feResponse = wsfeService.FECAESolicitar(feAuthRequest, fecaeReq);
 
             OutputWriter output = new OutputWriter();
             output.verbose = _verboseMode;
+            //output.serializeRequest("testing_factura_request.xml", fecaeReq);
 
             output.escribirRespuestaFacturaXml(archivoSalida, feResponse);
-
             return true;
         }
     }

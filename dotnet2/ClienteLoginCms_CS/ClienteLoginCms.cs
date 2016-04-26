@@ -535,10 +535,7 @@ class ProgramaPrincipal
         wsfeSolicitud.verbose = blnVerboseMode;
         try
         {
-            InputReader reader = new InputReader();
-            Factura f = reader.leeFacturaEnXml(strFactura);
-
-            wsfeSolicitud.send(longCuit, f, strSalida);
+            wsfeSolicitud.send(longCuit, strFactura, strSalida);
         }
         catch (Exception excepcionAlMandarFE)
         {

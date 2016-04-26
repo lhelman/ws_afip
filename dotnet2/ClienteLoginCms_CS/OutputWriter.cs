@@ -18,6 +18,16 @@ namespace ClienteLoginCms_CS
         private bool _verboseMode;
         public bool verbose { set { _verboseMode = value; } }
 
+
+        public void serializeRequest(string archivoOutput, Wsfe.FECAERequest req)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Wsfe.FECAERequest));
+            using (TextWriter writer = new StreamWriter(archivoOutput))
+            {
+                serializer.Serialize(writer, req);
+            }
+        }
+
         public void escribirRespuestaFacturaXml(string archivoOutput, Wsfe.FECAEResponse response)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Wsfe.FECAEResponse));
