@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:SetupInstaler"
+"ProjectName" = "8:ProgramasAfipSetupInstaler"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -82,6 +82,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -690,7 +698,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_368EFB49B5B349D18FA74A3A1BD08D8E"
             {
-            "SourcePath" = "8:..\\ClienteLoginCms_CS\\obj\\Debug\\ClienteLoginCms_CS.exe"
+            "SourcePath" = "8:..\\ClienteLoginCms_CS\\obj\\Release\\ClienteLoginCms_CS.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DA34E54EFC594E1B8AACF9DF3DA63F85"
