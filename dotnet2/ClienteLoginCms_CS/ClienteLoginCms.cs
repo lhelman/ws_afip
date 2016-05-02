@@ -367,7 +367,7 @@ class ProgramaPrincipal
                 }
             }
 
-            if (String.Compare(argumento, "-x", true) == 0)
+            else if (String.Compare(argumento, "-x", true) == 0)
             {
                 if (args.Length < (i + 2))
                 {
