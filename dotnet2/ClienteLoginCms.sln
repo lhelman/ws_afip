@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteLoginCms_CS", "Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteLoginCms_CSTests", "ClienteLoginCms_CSTests\ClienteLoginCms_CSTests.csproj", "{6C46501B-30BF-4BCB-89EE-FDA63744F684}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupInstaler", "Setup1\Setup1.vdproj", "{88CA0C14-E514-4EC0-AF9D-1602157F288E}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupInstaler", "ProgramasAfipSetup\ProgramasAfipSetup.vdproj", "{88CA0C14-E514-4EC0-AF9D-1602157F288E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
