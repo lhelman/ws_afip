@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECAESolicitar", "ClienteLoginCms_CS\FECAESolicitar.csproj", "{712C92BB-F975-46FD-817A-120F5CF55A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECAESolicitar_Tests", "ClienteLoginCms_CSTests\FECAESolicitar_Tests.csproj", "{6C46501B-30BF-4BCB-89EE-FDA63744F684}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProgramasAfipSetupInstaler", "ProgramasAfipSetup\ProgramasAfipSetup.vdproj", "{88CA0C14-E514-4EC0-AF9D-1602157F288E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{712C92BB-F975-46FD-817A-120F5CF55A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{712C92BB-F975-46FD-817A-120F5CF55A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{712C92BB-F975-46FD-817A-120F5CF55A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{712C92BB-F975-46FD-817A-120F5CF55A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C46501B-30BF-4BCB-89EE-FDA63744F684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C46501B-30BF-4BCB-89EE-FDA63744F684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C46501B-30BF-4BCB-89EE-FDA63744F684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C46501B-30BF-4BCB-89EE-FDA63744F684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Debug|Any CPU.ActiveCfg = Debug
+		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Release|Any CPU.ActiveCfg = Release
+		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Release|Any CPU.Build.0 = Release
+		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Release|Any CPU.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
