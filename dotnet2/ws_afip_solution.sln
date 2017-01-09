@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProgramasAfipSetupInstaler", "ProgramasAfipSetup\ProgramasAfipSetup.vdproj", "{88CA0C14-E514-4EC0-AF9D-1602157F288E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECompConsultar", "FECompConsultar\FECompConsultar.csproj", "{8E46DF4B-F35F-4C27-BF3B-7633DFAEF25D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WsAfipCommon", "WsAfipCommon\WsAfipCommon.csproj", "{F71A9BFC-B27C-4811-B735-59CCE0A46BE6}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECompUltimoAutorizado", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECAESolicitar", "FECAESolicitar\FECAESolicitar.csproj", "{227F88D0-1983-4712-8F71-91D98E560692}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProgramasAfipInstaller", "ProgramasAfipInstaller\ProgramasAfipInstaller.vdproj", "{A24B370C-287C-4216-829C-02889978936D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Debug|Any CPU.ActiveCfg = Debug
-		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Release|Any CPU.ActiveCfg = Release
-		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Release|Any CPU.Build.0 = Release
-		{88CA0C14-E514-4EC0-AF9D-1602157F288E}.Release|Any CPU.Deploy.0 = Release
 		{8E46DF4B-F35F-4C27-BF3B-7633DFAEF25D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8E46DF4B-F35F-4C27-BF3B-7633DFAEF25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E46DF4B-F35F-4C27-BF3B-7633DFAEF25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{227F88D0-1983-4712-8F71-91D98E560692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{227F88D0-1983-4712-8F71-91D98E560692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{227F88D0-1983-4712-8F71-91D98E560692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A24B370C-287C-4216-829C-02889978936D}.Debug|Any CPU.ActiveCfg = Debug
+		{A24B370C-287C-4216-829C-02889978936D}.Debug|Any CPU.Build.0 = Debug
+		{A24B370C-287C-4216-829C-02889978936D}.Release|Any CPU.ActiveCfg = Release
+		{A24B370C-287C-4216-829C-02889978936D}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
