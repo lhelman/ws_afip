@@ -9,6 +9,36 @@ Use este por que necesito que corra en windows y se complico instalar las depend
 
 Especificamente parti de este [ejemplo](http://www.afip.gob.ar/ws/WSAA/ejemplos/wsaa_cliente_dotnet2-10.09.30.zip)
 
+# Ejecucion
+
+Cada comando viene con su `-?` para pedirle ayuda
+
+Algunos ejemplos:
+
+
+## Mandando facturas al WS
+
+```
+FECAESolicitar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -f  C:\Afip\Factura.xml -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t 1234567890
+```
+
+## Consultando por tipo/nro/punto de venta
+
+```
+FECompConsultar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T 2 -N 123 -P 1 -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t 1234567890
+```
+
+## Consultando por tipo/nro/punto de venta
+
+```
+FECompUltimoAutorizado.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T 2 -P 1 -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t 1234567890
+```
+
+# Instalando
+
+Utilizar el [instalador](dotnet2/ProgramasAfipInstaller/Release/ProgramasAfipInstaller.msi)
+
+# Creando un entorno de desarrollo
 
 El entorno windows de desarrollo me lo genere bajandome un windows de 
 * https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/windows/
@@ -24,7 +54,9 @@ El entorno windows de desarrollo me lo genere bajandome un windows de
 * Add un proyecto nuevo del tipo: Console Application
 * Copiar de alguna de las anteriores los .cs (Por ej de FECompConsultar)
 * Add references
-  * `system.web.services` 
+  * `System.Web.Services` 
+  * `System.ServiceModel` 
+  * `Microsoft.VisualBasic` 
   * `Microsoft.VisualBasic` 
   * `projects` - `WsAfipCommon`
 * Si el xml que hay que mandar es complejo, se puede llamar al InputReader.cs que esta en WsAfipCommon
