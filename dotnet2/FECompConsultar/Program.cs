@@ -279,7 +279,7 @@ namespace FECompConsultar
                 Console.WriteLine(excepcionAlMandarFE.Message);
                 Console.WriteLine(excepcionAlMandarFE.Source);
 
-                OutputWriter<WsAfipCommon.Wsfe.FECompConsultaReq, WsAfipCommon.Wsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.Wsfe.FECompConsultaReq, WsAfipCommon.Wsfe.FECompConsultaResponse>();
+                OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
                 output.verbose = blnVerboseMode;
 
                 output.escribirRespuestaFacturaXml(strSalida, excepcionAlMandarFE);

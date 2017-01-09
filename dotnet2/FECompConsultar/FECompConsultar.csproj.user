@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>-w https://wsaa.afip.gov.ar/ws/services/LoginCms%3fWSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx%3fWSDL -c C:\Afip\cosderm2.pfx -v on -o C:\Afip\Salida.xml -t 33709117799 -T 1 -P 1 -N 1000</StartArguments>
+  </PropertyGroup>
+</Project>

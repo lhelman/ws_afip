@@ -22,25 +22,5 @@ namespace WsAfipCommon.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://wsaahomo.afip.gov.ar/ws/services/LoginCms")]
-        public string WsAfipCommon_ar_gov_afip_wsaahomo_LoginCMSService {
-            get {
-                return ((string)(this["WsAfipCommon_ar_gov_afip_wsaahomo_LoginCMSService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://wswhomo.afip.gov.ar/wsfev1/service.asmx")]
-        public string WsAfipCommon_Wsdf_Service {
-            get {
-                return ((string)(this["WsAfipCommon_Wsdf_Service"]));
-            }
-        }
     }
 }
