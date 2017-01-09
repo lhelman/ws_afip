@@ -268,26 +268,7 @@ namespace FECompConsultar
 
             WsfeFECompConsultar wsfeFECompConsultar = new WsfeFECompConsultar(strUrlWsfeWsdl, objTicketRespuesta.Token, objTicketRespuesta.Sign);
             wsfeFECompConsultar.verbose = blnVerboseMode;
-            try
-            {
-                wsfeFECompConsultar.send(longCuit, cbteTipo, cbteNro, ptoVta, strSalida);
-            }
-            catch (Exception excepcionAlMandarFE)
-            {
-
-                Console.WriteLine("***EXCEPCION AL MANDAR EL PEDIDO DE FE:");
-                Console.WriteLine(excepcionAlMandarFE.Message);
-                Console.WriteLine(excepcionAlMandarFE.Source);
-
-                OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
-                output.verbose = blnVerboseMode;
-
-                output.escribirRespuestaFacturaXml(strSalida, excepcionAlMandarFE);
-
-                return -11;
-
-            }
-            return 0;
+            return wsfeFECompConsultar.send(longCuit, cbteTipo, cbteNro, ptoVta, strSalida);
         }
 
         public static bool isMissingParameter(long longCuit, int cbteTipo, long cbteNro, int ptoVta)
@@ -361,10 +342,5 @@ namespace FECompConsultar
             Console.WriteLine("Version : {0}", Convert.ToString(MyApplication.Info.Version));
             Console.WriteLine("Descripcion: {0}", MyApplication.Info.Description);
         }
-
-
-
     }
-
-
 }

@@ -19,28 +19,47 @@ class WsfeFECompConsultar
         this._url = url;
     }
 
-    public bool send(long cuit, int cbteTipo, long cbteNro, int ptoVenta, string archivoSalida)
+    public int send(long cuit, int cbteTipo, long cbteNro, int ptoVenta, string archivoSalida)
     {
-        WsAfipCommon.SRWsfe.FECompConsultaReq feCompConsultaReq = new WsAfipCommon.SRWsfe.FECompConsultaReq();
-        
-        feCompConsultaReq.CbteTipo = cbteTipo;
-        feCompConsultaReq.CbteNro = cbteNro;
-        feCompConsultaReq.PtoVta = ptoVenta;
-        System.ServiceModel.EndpointAddress remoteAddress = new System.ServiceModel.EndpointAddress(new Uri(_url));
-        WsAfipCommon.SRWsfe.ServiceSoapClient wsfeService = new WsAfipCommon.SRWsfe.ServiceSoapClient(new System.ServiceModel.BasicHttpsBinding(), remoteAddress);
+        try
+        {
+            WsAfipCommon.SRWsfe.FECompConsultaReq feCompConsultaReq = new WsAfipCommon.SRWsfe.FECompConsultaReq();
 
-        WsAfipCommon.SRWsfe.FEAuthRequest feAuthRequest = new WsAfipCommon.SRWsfe.FEAuthRequest();
-        feAuthRequest.Cuit = cuit;
-        feAuthRequest.Token = _wsaaToken;
-        feAuthRequest.Sign = _wsaaSign;
+            feCompConsultaReq.CbteTipo = cbteTipo;
+            feCompConsultaReq.CbteNro = cbteNro;
+            feCompConsultaReq.PtoVta = ptoVenta;
+            System.ServiceModel.EndpointAddress remoteAddress = new System.ServiceModel.EndpointAddress(new Uri(_url));
+            WsAfipCommon.SRWsfe.ServiceSoapClient wsfeService = new WsAfipCommon.SRWsfe.ServiceSoapClient(new System.ServiceModel.BasicHttpsBinding(), remoteAddress);
 
-        WsAfipCommon.SRWsfe.FECompConsultaResponse feResponse;
-        feResponse = wsfeService.FECompConsultar(feAuthRequest, feCompConsultaReq);
+            WsAfipCommon.SRWsfe.FEAuthRequest feAuthRequest = new WsAfipCommon.SRWsfe.FEAuthRequest();
+            feAuthRequest.Cuit = cuit;
+            feAuthRequest.Token = _wsaaToken;
+            feAuthRequest.Sign = _wsaaSign;
 
-        OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
-        output.verbose = _verboseMode;
+            WsAfipCommon.SRWsfe.FECompConsultaResponse feResponse;
+            feResponse = wsfeService.FECompConsultar(feAuthRequest, feCompConsultaReq);
 
-        output.escribirRespuestaFacturaXml(archivoSalida, feResponse);
-        return true;
+            OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
+            output.verbose = _verboseMode;
+
+            output.escribirRespuestaFacturaXml(archivoSalida, feResponse);
+        }
+        catch (Exception excepcionAlMandarFE)
+        {
+
+            Console.WriteLine("***EXCEPCION AL MANDAR EL PEDIDO DE FE:");
+            Console.WriteLine(excepcionAlMandarFE.Message);
+            Console.WriteLine(excepcionAlMandarFE.Source);
+
+            OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
+            output.verbose = _verboseMode;
+
+            output.escribirRespuestaFacturaXml(archivoSalida, excepcionAlMandarFE);
+
+            return -11;
+
+        }
+
+        return 0;
     }
 }
