@@ -36,7 +36,7 @@ FECompUltimoAutorizado.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL
 
 # Instalando
 
-Utilizar el [instalador](dotnet2/ProgramasAfipInstaller/Release/ProgramasAfipInstaller.msi)
+Utilizar el [instalador](dotnet2/ProgramasAfipInstaller/Release/ProgramasAfipInstaller.msi?raw=true)
 
 # Creando un entorno de desarrollo
 
