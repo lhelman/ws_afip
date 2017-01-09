@@ -21,23 +21,23 @@ class WsfeFECompConsultar
 
     public bool send(long cuit, int cbteTipo, long cbteNro, int ptoVenta, string archivoSalida)
     {
-        WsAfipCommon.Wsfe.FECompConsultaReq feCompConsultaReq = new WsAfipCommon.Wsfe.FECompConsultaReq();
+        WsAfipCommon.SRWsfe.FECompConsultaReq feCompConsultaReq = new WsAfipCommon.SRWsfe.FECompConsultaReq();
+        
         feCompConsultaReq.CbteTipo = cbteTipo;
         feCompConsultaReq.CbteNro = cbteNro;
         feCompConsultaReq.PtoVta = ptoVenta;
+        System.ServiceModel.EndpointAddress remoteAddress = new System.ServiceModel.EndpointAddress(new Uri(_url));
+        WsAfipCommon.SRWsfe.ServiceSoapClient wsfeService = new WsAfipCommon.SRWsfe.ServiceSoapClient(new System.ServiceModel.BasicHttpsBinding(), remoteAddress);
 
-        WsAfipCommon.Wsfe.FEAuthRequest feAuthRequest = new WsAfipCommon.Wsfe.FEAuthRequest();
+        WsAfipCommon.SRWsfe.FEAuthRequest feAuthRequest = new WsAfipCommon.SRWsfe.FEAuthRequest();
         feAuthRequest.Cuit = cuit;
         feAuthRequest.Token = _wsaaToken;
         feAuthRequest.Sign = _wsaaSign;
 
-        WsAfipCommon.Wsfe.Service wsfeService = new WsAfipCommon.Wsfe.Service();
-        wsfeService.Url = _url;
-
-        WsAfipCommon.Wsfe.FECompConsultaResponse feResponse;
+        WsAfipCommon.SRWsfe.FECompConsultaResponse feResponse;
         feResponse = wsfeService.FECompConsultar(feAuthRequest, feCompConsultaReq);
 
-        OutputWriter<WsAfipCommon.Wsfe.FECompConsultaReq, WsAfipCommon.Wsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.Wsfe.FECompConsultaReq,WsAfipCommon.Wsfe.FECompConsultaResponse>();
+        OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
         output.verbose = _verboseMode;
 
         output.escribirRespuestaFacturaXml(archivoSalida, feResponse);

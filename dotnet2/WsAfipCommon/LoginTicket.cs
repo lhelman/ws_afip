@@ -183,9 +183,9 @@ public class LoginTicket
                 Console.WriteLine(cmsFirmadoBase64);
             }
 
-            WsAfipCommon.Wsaa.LoginCMSService servicioWsaa = new WsAfipCommon.Wsaa.LoginCMSService();
-            servicioWsaa.Url = argUrlWsaa;
-
+            System.ServiceModel.EndpointAddress remoteAddress = new System.ServiceModel.EndpointAddress(new Uri(argUrlWsaa));
+            WsAfipCommon.SRWsaa.LoginCMSClient servicioWsaa = new WsAfipCommon.SRWsaa.LoginCMSClient(new System.ServiceModel.BasicHttpsBinding(), remoteAddress);
+     
             loginTicketResponse = servicioWsaa.loginCms(cmsFirmadoBase64);
 
             if (this._verboseMode)

@@ -56,15 +56,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\Wsaa\Reference.cs">
+    <Compile Include="Service References\SRWsaa\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Web References\Wsfe\Reference.cs">
+    <Compile Include="Service References\SRWsfe\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -76,100 +76,99 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\Wsaa\LoginCms.wsdl" />
-    <None Include="Web References\Wsaa\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Service References\SRWsaa\LoginCms.wsdl" />
+    <None Include="Service References\SRWsfe\service.wsdl" />
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.CbteTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\CbteTipoResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.ConceptoTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\ConceptoTipoResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.DocTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\DocTipoResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.DummyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\DummyResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECAEAGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECAEAGetResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECAEAResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECAEAResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECAEASinMovConsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECAEASinMovConsResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECAEASinMovResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECAEASinMovResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECAEResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECAEResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECompConsultaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECompConsultaResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FECotizacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FECotizacionResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FEPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FEPaisResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FEPtoVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FEPtoVentaResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FERecuperaLastCbteResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FERegXReqResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FERegXReqResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.FETributoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\FETributoResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.IvaTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\IvaTipoResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.MonedaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\MonedaResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
+    <None Include="Service References\SRWsfe\WsAfipCommon.SRWsfe.OpcionalTipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Web References\Wsfe\OpcionalTipoResponse1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\Wsfe\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\Wsfe\service.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://wsaahomo.afip.gov.ar/ws/services/LoginCms%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\Wsaa\</RelPath>
-      <UpdateFromURL>https://wsaahomo.afip.gov.ar/ws/services/LoginCms%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WsAfipCommon_ar_gov_afip_wsaahomo_LoginCMSService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://wswhomo.afip.gov.ar/wsfev1/service.asmx%3fWSDL">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\Wsfe\</RelPath>
-      <UpdateFromURL>https://wswhomo.afip.gov.ar/wsfev1/service.asmx%3fWSDL</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WsAfipCommon_Wsdf_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
+    <WCFMetadataStorage Include="Service References\SRWsaa\" />
+    <WCFMetadataStorage Include="Service References\SRWsfe\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsaa\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsaa\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsaa\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsfe\service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsfe\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsfe\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SRWsfe\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

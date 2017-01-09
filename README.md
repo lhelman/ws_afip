@@ -18,3 +18,15 @@ El entorno windows de desarrollo me lo genere bajandome un windows de
 * Apunte el VisualStudio a este proyecto en github
 
 
+# Agregando una llamada nueva
+
+* Parado en el solution explorer, apuntando a la solucion
+* Add un proyecto nuevo del tipo: Console Application
+* Copiar de alguna de las anteriores los .cs (Por ej de FECompConsultar)
+* Add references
+  * `system.web.services` 
+  * `Microsoft.VisualBasic` 
+  * `projects` - `WsAfipCommon`
+* Si el xml que hay que mandar es complejo, se puede llamar al InputReader.cs que esta en WsAfipCommon
+
+
