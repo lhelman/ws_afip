@@ -6,3 +6,5 @@ Backup
 *.dll
 obj
 bin
+manual_desarrollador*pdf
+certs/*
