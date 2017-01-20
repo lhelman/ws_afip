@@ -18,9 +18,12 @@ class WsfeFECompUltimoAutorizado
 
     public int send(long cuit, int cbteTipo, int ptoVenta, string archivoSalida)
     {
+        var output = new OutputWriter<WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse>();
+        output.verbose = _verboseMode;
+
         try
         {
-            WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest feCompUltimoAutorizadoReq = new WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest();
+            var feCompUltimoAutorizadoReq = new WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest();
 
             feCompUltimoAutorizadoReq.Body.CbteTipo = cbteTipo;
             feCompUltimoAutorizadoReq.Body.PtoVta = ptoVenta;
@@ -34,10 +37,8 @@ class WsfeFECompUltimoAutorizado
 
             WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse feResponse;
             feResponse = wsfeService.FECompUltimoAutorizado(feAuthRequest, ptoVenta, cbteTipo);
-            OutputWriter<WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest, WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest, WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse>();
-            output.verbose = _verboseMode;
 
-            output.escribirRespuestaFacturaXml(archivoSalida, feResponse);
+            output.escribeEnXml(archivoSalida, feResponse);
         }
         catch (Exception excepcionAlMandarFE)
         {
@@ -46,10 +47,8 @@ class WsfeFECompUltimoAutorizado
             Console.WriteLine(excepcionAlMandarFE.Message);
             Console.WriteLine(excepcionAlMandarFE.Source);
 
-            OutputWriter<WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest, WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest, WsAfipCommon.SRWsfe.FERecuperaLastCbteResponse>();
-            output.verbose = _verboseMode;
 
-            output.escribirRespuestaFacturaXml(archivoSalida, excepcionAlMandarFE);
+            output.escribeEnXml(archivoSalida, excepcionAlMandarFE);
 
             return -11;
 

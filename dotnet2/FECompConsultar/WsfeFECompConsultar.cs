@@ -21,6 +21,9 @@ class WsfeFECompConsultar
 
     public int send(long cuit, int cbteTipo, long cbteNro, int ptoVenta, string archivoSalida)
     {
+        var output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaResponse>();
+        output.verbose = _verboseMode;
+
         try
         {
             WsAfipCommon.SRWsfe.FECompConsultaReq feCompConsultaReq = new WsAfipCommon.SRWsfe.FECompConsultaReq();
@@ -39,10 +42,8 @@ class WsfeFECompConsultar
             WsAfipCommon.SRWsfe.FECompConsultaResponse feResponse;
             feResponse = wsfeService.FECompConsultar(feAuthRequest, feCompConsultaReq);
 
-            OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
-            output.verbose = _verboseMode;
 
-            output.escribirRespuestaFacturaXml(archivoSalida, feResponse);
+            output.escribeEnXml(archivoSalida, feResponse);
         }
         catch (Exception excepcionAlMandarFE)
         {
@@ -51,10 +52,7 @@ class WsfeFECompConsultar
             Console.WriteLine(excepcionAlMandarFE.Message);
             Console.WriteLine(excepcionAlMandarFE.Source);
 
-            OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse> output = new OutputWriter<WsAfipCommon.SRWsfe.FECompConsultaReq, WsAfipCommon.SRWsfe.FECompConsultaResponse>();
-            output.verbose = _verboseMode;
-
-            output.escribirRespuestaFacturaXml(archivoSalida, excepcionAlMandarFE);
+            output.escribeEnXml(archivoSalida, excepcionAlMandarFE);
 
             return -11;
 

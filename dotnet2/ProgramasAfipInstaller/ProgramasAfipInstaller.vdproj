@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_30E3F57358CCF902914D5B1C49F1E473"
+        "OwnerKey" = "8:_3FE6374B61404307BA245B1CF84994C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_30E3F57358CCF902914D5B1C49F1E473"
+        "OwnerKey" = "8:_7B6616A75722470BA34021B810F30D3F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3FE6374B61404307BA245B1CF84994C7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -34,30 +46,6 @@
         "Entry"
         {
         "MsmKey" = "8:_9B0E712258AD91322B6FF41B61C4BD55"
-        "OwnerKey" = "8:_DFBAA7D4595B433E86E22CAF6BC3CBB0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9B0E712258AD91322B6FF41B61C4BD55"
-        "OwnerKey" = "8:_7B6616A75722470BA34021B810F30D3F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A9B40BC66E66543493B3DC3CBBAAD1EB"
-        "OwnerKey" = "8:_3FE6374B61404307BA245B1CF84994C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A9B40BC66E66543493B3DC3CBBAAD1EB"
-        "OwnerKey" = "8:_DFBAA7D4595B433E86E22CAF6BC3CBB0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A9B40BC66E66543493B3DC3CBBAAD1EB"
         "OwnerKey" = "8:_7B6616A75722470BA34021B810F30D3F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -70,13 +58,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FE6374B61404307BA245B1CF84994C7"
+        "OwnerKey" = "8:_9B0E712258AD91322B6FF41B61C4BD55"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DFBAA7D4595B433E86E22CAF6BC3CBB0"
+        "OwnerKey" = "8:_30E3F57358CCF902914D5B1C49F1E473"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,13 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A9B40BC66E66543493B3DC3CBBAAD1EB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9B0E712258AD91322B6FF41B61C4BD55"
+        "OwnerKey" = "8:_3FE6374B61404307BA245B1CF84994C7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -122,6 +104,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -148,10 +138,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
                     }
                 }
             }
@@ -184,20 +174,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9B0E712258AD91322B6FF41B61C4BD55"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_30E3F57358CCF902914D5B1C49F1E473"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            "AssemblyAsmDisplayName" = "8:WsAfipCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_9B0E712258AD91322B6FF41B61C4BD55"
+                    "_30E3F57358CCF902914D5B1C49F1E473"
                     {
-                    "Name" = "8:System.Net.Http.dll"
+                    "Name" = "8:WsAfipCommon.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:System.Net.Http.dll"
+            "SourcePath" = "8:WsAfipCommon.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B6FDF466C5314647829AEF43786F4B4F"
@@ -215,20 +205,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A9B40BC66E66543493B3DC3CBBAAD1EB"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9B0E712258AD91322B6FF41B61C4BD55"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WsAfipCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_A9B40BC66E66543493B3DC3CBBAAD1EB"
+                    "_9B0E712258AD91322B6FF41B61C4BD55"
                     {
-                    "Name" = "8:WsAfipCommon.dll"
+                    "Name" = "8:System.Net.Http.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:WsAfipCommon.dll"
+            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B6FDF466C5314647829AEF43786F4B4F"
@@ -302,15 +292,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:programas_afip"
-        "ProductCode" = "8:{757F57BB-ED58-4AA2-8E2B-CD631DDB8B35}"
-        "PackageCode" = "8:{4242E81D-71B0-4884-9652-E4822384383D}"
+        "ProductCode" = "8:{97439704-552D-42F0-8EC9-B9A60D73B1EC}"
+        "PackageCode" = "8:{6084898D-728A-471D-ABE6-936057BB68EF}"
         "UpgradeCode" = "8:{EC97C031-DB35-496C-9FFD-13BC6C733C8D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:helman"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -824,7 +814,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3FE6374B61404307BA245B1CF84994C7"
             {
-            "SourcePath" = "8:..\\FECAESolicitar\\obj\\Release\\FECAESolicitar.exe"
+            "SourcePath" = "8:..\\FECAESolicitar\\obj\\Debug\\FECAESolicitar.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B6FDF466C5314647829AEF43786F4B4F"
@@ -852,7 +842,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7B6616A75722470BA34021B810F30D3F"
             {
-            "SourcePath" = "8:..\\FECompUltimoAutorizado\\obj\\Release\\FECompUltimoAutorizado.exe"
+            "SourcePath" = "8:..\\FECompUltimoAutorizado\\obj\\Debug\\FECompUltimoAutorizado.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B6FDF466C5314647829AEF43786F4B4F"
@@ -880,7 +870,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DFBAA7D4595B433E86E22CAF6BC3CBB0"
             {
-            "SourcePath" = "8:..\\FECompConsultar\\obj\\Release\\FECompConsultar.exe"
+            "SourcePath" = "8:..\\FECompConsultar\\obj\\Debug\\FECompConsultar.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B6FDF466C5314647829AEF43786F4B4F"
