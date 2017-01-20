@@ -60,10 +60,11 @@ public class CertificadosX509Lib
     public static X509Certificate2 ObtieneCertificadoDesdeArchivo(string argArchivo)
     {
         X509Certificate2 objCert = new X509Certificate2();
-
+        
         try
         {
-            objCert.Import(Microsoft.VisualBasic.FileIO.FileSystem.ReadAllBytes(argArchivo));
+            //objCert.Import(Microsoft.VisualBasic.FileIO.FileSystem.ReadAllBytes(argArchivo));
+            objCert.Import(argArchivo);
             return objCert;
         }
         catch (Exception excepcionAlImportarCertificado)
@@ -73,4 +74,27 @@ public class CertificadosX509Lib
         }
     }
 
+    /// <summary> 
+    /// Lee certificado encriptado con un password de disco
+    /// </summary> 
+    /// <param name="argArchivo">Ruta del certificado a leer.</param> 
+    /// <param name="argPassword">Pasword que proteje el certificado.</param> 
+    /// <returns>Un objeto certificado X509</returns> 
+    /// <remarks></remarks> 
+    public static X509Certificate2 ObtieneCertificadoDesdeArchivo(string argArchivo, string argPassword)
+    {
+        X509Certificate2 objCert = new X509Certificate2();
+
+        try
+        {
+            //objCert.Import(Microsoft.VisualBasic.FileIO.FileSystem.ReadAllBytes(argArchivo));
+            objCert.Import(argArchivo, argPassword, X509KeyStorageFlags.DefaultKeySet);
+            return objCert;
+        }
+        catch (Exception excepcionAlImportarCertificado)
+        {
+            throw new Exception("argArchivo=" + argArchivo + " excepcion=" + excepcionAlImportarCertificado.Message + " " + excepcionAlImportarCertificado.StackTrace);
+
+        }
+    }
 }

@@ -36,6 +36,7 @@ namespace FECompUltimoAutorizado
             string strUrlWsfeWsdl = DEFAULT_URLWSFEWSDL;
             string strIdServicioNegocio = DEFAULT_SERVICIO;
             string strRutaCertSigner = DEFAULT_CERTSIGNER;
+            string strPassword = null;
             long longCuit = DEFAULT_CUIT;
             int cbteTipo = DEFAULT_CBTETIPO;
             int ptoVta = DEFAULT_PTOVTA;
@@ -108,7 +109,20 @@ namespace FECompUltimoAutorizado
                         i = i + 1;
                     }
                 }
-
+                
+                else if (String.Compare(argumento, "-p") == 0)
+                {
+                    if (args.Length < (i + 2))
+                    {
+                        Console.WriteLine("Error: no se especificó el password");
+                        return -1;
+                    }
+                    else
+                    {
+                        strPassword = args[i + 1];
+                        i = i + 1;
+                    }
+                }
                 else if (String.Compare(argumento, "-t") == 0)
                 {
                     if (args.Length < (i + 2))
@@ -207,6 +221,7 @@ namespace FECompUltimoAutorizado
                     Console.WriteLine("***URL del WSAA: {0}", strUrlWsaaWsdl);
                     Console.WriteLine("***URL del WSFE: {0}", strUrlWsfeWsdl);
                     Console.WriteLine("***Ruta del certificado: {0}", strRutaCertSigner);
+                    Console.WriteLine("***Password del certificado: {0}", (strPassword == null ? "-NO PASSWD-" : "*****"));
                     Console.WriteLine("***Comprobante Tipo: {0}", cbteTipo);
                     Console.WriteLine("***Punto de venta: {0}", ptoVta);
                     Console.WriteLine("***Archivo de salida: {0}", strSalida);
@@ -223,7 +238,7 @@ namespace FECompUltimoAutorizado
                     Console.WriteLine("***Accediendo a {0}", strUrlWsaaWsdl);
                 }
 
-                strTicketRespuesta = objTicketRespuesta.ObtenerLoginTicketResponse(strIdServicioNegocio, strUrlWsaaWsdl, strRutaCertSigner, blnVerboseMode);
+                strTicketRespuesta = objTicketRespuesta.ObtenerLoginTicketResponse(strIdServicioNegocio, strUrlWsaaWsdl, strRutaCertSigner, strPassword, blnVerboseMode);
 
                 if (blnVerboseMode)
                 {
@@ -291,6 +306,7 @@ namespace FECompUltimoAutorizado
             Console.WriteLine(" Valor por defecto: " + DEFAULT_SERVICIO);
             Console.WriteLine(" -c certificado Ruta del certificado (con clave privada)");
             Console.WriteLine(" Valor por defecto: " + DEFAULT_CERTSIGNER);
+            Console.WriteLine(" -p password del certificado");
             Console.WriteLine(" -t CUIT");
             Console.WriteLine(" Valor por defecto: " + DEFAULT_CUIT);
             Console.WriteLine(" -w url URL del WSDL del WSAA");

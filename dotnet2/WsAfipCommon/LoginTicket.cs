@@ -98,7 +98,7 @@ public class LoginTicket
     /// <param name="argRutaCertX509Firmante">Ruta del certificado X509 (con clave privada) usado para firmar</param> 
     /// <param name="argVerbose">Nivel detallado de descripcion? true/false</param> 
     /// <remarks></remarks> 
-    public string ObtenerLoginTicketResponse(string argServicio, string argUrlWsaa, string argRutaCertX509Firmante, bool argVerbose)
+    public string ObtenerLoginTicketResponse(string argServicio, string argUrlWsaa, string argRutaCertX509Firmante, string argPassword, bool argVerbose)
     {
 
         this.RutaDelCertificadoFirmante = argRutaCertX509Firmante;
@@ -151,7 +151,15 @@ public class LoginTicket
                 Console.WriteLine("***Leyendo certificado: {0}", RutaDelCertificadoFirmante);
             }
 
-            X509Certificate2 certFirmante = CertificadosX509Lib.ObtieneCertificadoDesdeArchivo(RutaDelCertificadoFirmante);
+            X509Certificate2 certFirmante;
+
+            if (argPassword == null)
+            {
+                certFirmante = CertificadosX509Lib.ObtieneCertificadoDesdeArchivo(RutaDelCertificadoFirmante);
+            }
+            else {
+                certFirmante = CertificadosX509Lib.ObtieneCertificadoDesdeArchivo(RutaDelCertificadoFirmante, argPassword);
+            }
 
             if (this._verboseMode)
             {

@@ -4,34 +4,27 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-public class OutputWriter<WsfeRequestType, WsfeResponseType>
+public class OutputWriter<WsfeType>
 {
-    public class OutputParaExcepcion
-    {
-        public string mensaje;
-        public string source;
-    }
-
     private bool _verboseMode;
     public bool verbose { set { _verboseMode = value; } }
 
 
-    public void serializeRequest(string archivoOutput, WsfeRequestType req)
+    public void escribeEnXmlGeneric<t>(string archivoOutput, t some_object)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(WsfeRequestType));
+        Console.WriteLine("DEBUGLEOH ESCRIBE EN XML");
+
+        XmlSerializer serializer = new XmlSerializer(typeof(t));
         using (TextWriter writer = new StreamWriter(archivoOutput))
         {
-            serializer.Serialize(writer, req);
+            Console.WriteLine("DEBUGLEOH SERIALIZE.serialize");
+            serializer.Serialize(writer, some_object);
         }
     }
 
-    public void escribirRespuestaFacturaXml(string archivoOutput, WsfeResponseType response)
+    public void escribeEnXml(string archivoOutput, WsfeType req)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(WsfeResponseType));
-        using (TextWriter writer = new StreamWriter(archivoOutput))
-        {
-            serializer.Serialize(writer, response);
-        }
+        escribeEnXmlGeneric(archivoOutput, req);
     }
 
     /*
@@ -41,16 +34,18 @@ public class OutputWriter<WsfeRequestType, WsfeResponseType>
 <source>AfipWebservice</source>
 </OutputParaExcepcion>
      */
-    public void escribirRespuestaFacturaXml(string archivoOutput, Exception exepcion)
+    public void escribeEnXml(string archivoOutput, Exception exepcion)
     {
-        OutputParaExcepcion e = new OutputParaExcepcion();
+        OutputParaExepcion e = new OutputParaExepcion();
         e.mensaje = exepcion.Message;
         e.source = exepcion.Source;
 
-        XmlSerializer serializer = new XmlSerializer(typeof(OutputParaExcepcion));
-        using (TextWriter writer = new StreamWriter(archivoOutput))
-        {
-            serializer.Serialize(writer, e);
-        }
+        escribeEnXmlGeneric(archivoOutput, e);
+    }
+
+    private class OutputParaExepcion
+    {
+        public string mensaje;
+        public string source;
     }
 }
