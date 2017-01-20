@@ -18,20 +18,66 @@ Algunos ejemplos:
 
 ## Mandando facturas al WS
 
+
 ```
-FECAESolicitar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -f  C:\Afip\Factura.xml -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t 1234567890
+FECAESolicitar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -f  C:\Afip\Factura.xml -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t NRO_CUIT
+```
+
+
+
+El formato de factura es:
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<FECAERequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FeCabReq>
+    <CantReg>1</CantReg>
+    <PtoVta>4</PtoVta>
+    <CbteTipo>1</CbteTipo>
+  </FeCabReq>
+  <FeDetReq>
+    <FECAEDetRequest>
+      <Concepto>1</Concepto>
+      <DocTipo>80</DocTipo>
+      <DocNro>27123456780</DocNro>
+      <CbteDesde>581</CbteDesde>
+      <CbteHasta>581</CbteHasta>
+      <CbteFch>20170120</CbteFch>
+      <ImpTotal>17700.4</ImpTotal>
+      <ImpTotConc>0</ImpTotConc>
+      <ImpNeto>15456.57</ImpNeto>
+      <ImpOpEx>0</ImpOpEx>
+      <ImpTrib>0</ImpTrib>
+      <ImpIVA>3245.88</ImpIVA>
+      <MonId>PES</MonId>
+      <MonCotiz>1</MonCotiz>
+      <Iva>
+        <AlicIva>
+          <Id>5</Id>
+          <BaseImp>15456.57</BaseImp>
+          <Importe>3245.88</Importe>
+        </AlicIva>
+      </Iva>
+    </FECAEDetRequest>
+  </FeDetReq>
+</FECAERequest>
+```
+
+
+## Consultando por tipo/nro/punto de venta
+
+
+```
+FECompConsultar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T NRO_TIPO -N NRO_COMPROBANTE -P NRO_PUNTO_DE_VENTA -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t NRO_CUIT
 ```
 
 ## Consultando por tipo/nro/punto de venta
 
-```
-FECompConsultar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T 2 -N 123 -P 1 -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t 1234567890
-```
-
-## Consultando por tipo/nro/punto de venta
+No funciona todavia:
 
 ```
-FECompUltimoAutorizado.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T 2 -P 1 -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t 1234567890
+FECompUltimoAutorizado.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T NRO_TIPO -P NRO_PUNTO_DE_VENTA -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t NRO_CUIT
 ```
 
 # Instalando
