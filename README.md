@@ -64,6 +64,39 @@ El formato de factura es:
 </FECAERequest>
 ```
 
+La salida es asi:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<FECAEResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ExtensionData />
+  <FeCabResp>
+    <ExtensionData />
+    <Cuit>20123456780</Cuit>
+    <PtoVta>4</PtoVta>
+    <CbteTipo>1</CbteTipo>
+    <FchProceso>20170149203406</FchProceso>
+    <CantReg>1</CantReg>
+    <Resultado>A</Resultado>
+    <Reproceso>N</Reproceso>
+  </FeCabResp>
+  <FeDetResp>
+    <FECAEDetResponse>
+      <ExtensionData />
+      <Concepto>1</Concepto>
+      <DocTipo>80</DocTipo>
+      <DocNro>27123456789</DocNro>
+      <CbteDesde>1</CbteDesde>
+      <CbteHasta>1</CbteHasta>
+      <CbteFch>20170119</CbteFch>
+      <Resultado>A</Resultado>
+      <CAE>67123456789012</CAE>
+      <CAEFchVto>20170129</CAEFchVto>
+    </FECAEDetResponse>
+  </FeDetResp>
+</FECAEResponse>
+```
+
 
 ## Consultando por tipo/nro/punto de venta
 
@@ -72,13 +105,69 @@ El formato de factura es:
 FECompConsultar.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T NRO_TIPO -N NRO_COMPROBANTE -P NRO_PUNTO_DE_VENTA -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t NRO_CUIT
 ```
 
+La salida es asi:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<FECompConsultaResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ExtensionData />
+  <ResultGet>
+    <ExtensionData />
+    <Concepto>1</Concepto>
+    <DocTipo>80</DocTipo>
+    <DocNro>20123456780</DocNro>
+    <CbteDesde>1</CbteDesde>
+    <CbteHasta>1</CbteHasta>
+    <CbteFch>20170119</CbteFch>
+    <ImpTotal>18702.45</ImpTotal>
+    <ImpTotConc>0</ImpTotConc>
+    <ImpNeto>15456.57</ImpNeto>
+    <ImpOpEx>0</ImpOpEx>
+    <ImpTrib>0</ImpTrib>
+    <ImpIVA>3245.88</ImpIVA>
+    <FchServDesde />
+    <FchServHasta />
+    <FchVtoPago />
+    <MonId>PES</MonId>
+    <MonCotiz>1</MonCotiz>
+    <Iva>
+      <AlicIva>
+        <ExtensionData />
+        <Id>5</Id>
+        <BaseImp>15456.57</BaseImp>
+        <Importe>3245.88</Importe>
+      </AlicIva>
+    </Iva>
+    <Resultado>A</Resultado>
+    <CodAutorizacion>67890123345678</CodAutorizacion>
+    <EmisionTipo>CAE</EmisionTipo>
+    <FchVto>20170129</FchVto>
+    <FchProceso>20170149203406</FchProceso>
+    <PtoVta>4</PtoVta>
+    <CbteTipo>1</CbteTipo>
+  </ResultGet>
+</FECompConsultaResponse>
+```
+
 ## Consultando por tipo/nro/punto de venta
 
-No funciona todavia:
 
 ```
 FECompUltimoAutorizado.exe -w https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL -x https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL -T NRO_TIPO -P NRO_PUNTO_DE_VENTA -c C:\Afip\keyfile.pfx -v on -o C:\Afip\Salida.xml -t NRO_CUIT
 ```
+
+La salida es asi:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<FERecuperaLastCbteResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ExtensionData />
+  <PtoVta>4</PtoVta>
+  <CbteTipo>1</CbteTipo>
+  <CbteNro>1</CbteNro>
+</FERecuperaLastCbteResponse>
+```
+
 
 # Instalando
 
