@@ -23,14 +23,10 @@ class WsfeFECompUltimoAutorizado
 
         try
         {
-            var feCompUltimoAutorizadoReq = new WsAfipCommon.SRWsfe.FECompUltimoAutorizadoRequest();
+            var remoteAddress = new System.ServiceModel.EndpointAddress(new Uri(_url));
+            var wsfeService = new WsAfipCommon.SRWsfe.ServiceSoapClient(new System.ServiceModel.BasicHttpsBinding(), remoteAddress);
 
-            feCompUltimoAutorizadoReq.Body.CbteTipo = cbteTipo;
-            feCompUltimoAutorizadoReq.Body.PtoVta = ptoVenta;
-            System.ServiceModel.EndpointAddress remoteAddress = new System.ServiceModel.EndpointAddress(new Uri(_url));
-            WsAfipCommon.SRWsfe.ServiceSoapClient wsfeService = new WsAfipCommon.SRWsfe.ServiceSoapClient(new System.ServiceModel.BasicHttpsBinding(), remoteAddress);
-
-            WsAfipCommon.SRWsfe.FEAuthRequest feAuthRequest = new WsAfipCommon.SRWsfe.FEAuthRequest();
+            var feAuthRequest = new WsAfipCommon.SRWsfe.FEAuthRequest();
             feAuthRequest.Cuit = cuit;
             feAuthRequest.Token = _wsaaToken;
             feAuthRequest.Sign = _wsaaSign;
